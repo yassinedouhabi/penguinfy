@@ -4,29 +4,29 @@ import {
   IoSearchOutline,
   IoPersonOutline,
 } from "react-icons/io5";
-import NavLayout from "./NavLayout";
 import useScroll from "../hooks/useScroll";
-import ThemeSelector from "../components/ThemeSelector";
+import { Glassmorphism } from "../styles/Glassmorphism";
 
 const Header = () => {
   const isScrolled = useScroll();
 
   return (
-    <>
-      <header
-        className={`absolute left-0 top-0 z-20 mx-auto flex w-full items-center justify-between bg-white/80 bg-opacity-90 bg-clip-padding px-4 py-2 shadow-xl backdrop-blur-3xl backdrop-filter transition-all duration-300 dark:bg-black/40 md:py-4 ${
-          isScrolled ? "sticky top-4 rounded-xl border-none" : ""
-        }`}
-      >
+    <header
+      className={
+        isScrolled
+          ? `sticky top-2 mx-auto w-[94%] max-w-7xl overflow-hidden rounded-full bg-white shadow-xl dark:bg-black/10 ${Glassmorphism({ opacity: 60 })} px-4 transition-all duration-300 ease-in-out`
+          : "w-full overflow-hidden border-b-2 border-gray-200 bg-white px-4 dark:border-gray-800 dark:bg-black"
+      }
+    >
+      <div className="mx-auto flex max-w-7xl items-center justify-between py-4">
         <div className="flex items-center space-x-4">
           {/* Logo */}
           <Link
             to="/"
-            className="text-xl font-bold uppercase text-violet-600 dark:text-violet-400"
+            className="text-xl font-bold uppercase text-violet-600 dark:text-violet-400 md:text-xl"
           >
             Penguinfy
           </Link>
-
           {/* Navigation Links */}
           <nav className="hidden space-x-4 md:flex">
             <NavLink
@@ -86,8 +86,30 @@ const Header = () => {
               Settings
             </NavLink>
           </nav>
+          <ul className="flex md:hidden">
+            <li className="flex space-x-4">
+              <Link
+                to="/new"
+                className="text-sm font-bold text-gray-800 hover:opacity-80 dark:text-white"
+              >
+                New
+              </Link>
+              <Link
+                to="/movies"
+                className="text-sm font-bold text-gray-800 hover:opacity-80 dark:text-white"
+              >
+                Movies
+              </Link>
+              <Link
+                to="/tv-shows"
+                className="text-sm font-bold text-gray-800 hover:opacity-80 dark:text-white"
+              >
+                Tv-shows
+              </Link>
+            </li>
+          </ul>
         </div>
-        <div className="text-tertiary items-center space-x-4 text-2xl md:flex">
+        <div className="space-x-4 text-2xl text-black md:flex">
           {/* Search Bar */}
           <Link to="/search" className="hidden">
             <IoSearchOutline className="cursor-pointer" />
@@ -96,12 +118,9 @@ const Header = () => {
           <IoNotificationsOutline className="hidden cursor-pointer" />
           {/* User Profile */}
           <IoPersonOutline className="hidden cursor-pointer" />
-          {/* Theme */}
-          <ThemeSelector />
         </div>
-      </header>
-      <NavLayout />
-    </>
+      </div>
+    </header>
   );
 };
 
