@@ -6,24 +6,27 @@ import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 import HeaderLayout from "./layout/HeaderLayout";
 import NavLayout from "./layout/NavLayout";
+import { ThemeProvider } from "./context/ThemeContext";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        {/* Routes with Header */}
-        <Route element={<HeaderLayout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/downloads" element={<Downloads />} />
-          <Route path="/settings" element={<Settings />} />
-        </Route>
+    <ThemeProvider>
+      <Router>
+        <Routes>
+          {/* Routes with Header */}
+          <Route element={<HeaderLayout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/downloads" element={<Downloads />} />
+            <Route path="/settings" element={<Settings />} />
+          </Route>
 
-        {/* Routes without Header */}
-        <Route path="/search" element={<Search />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-      <NavLayout />
-    </Router>
+          {/* Routes without Header */}
+          <Route path="/search" element={<Search />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <NavLayout />
+      </Router>
+    </ThemeProvider>
   );
 }
 

@@ -6,7 +6,7 @@ function Settings() {
       <h1 className="mb-12 text-3xl font-bold text-gray-800 dark:text-white">
         Settings
       </h1>
-      <div className="flex items-center gap-4">
+      <div className="flex flex-col items-start gap-4">
         <h2 className="text-xl font-bold text-gray-800 dark:text-white">
           Theme:
         </h2>
