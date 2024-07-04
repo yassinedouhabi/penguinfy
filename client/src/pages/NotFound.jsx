@@ -1,14 +1,15 @@
-import Button from '../components/Button';
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 function NotFound() {
   return (
-    <div className='flex items-center justify-center h-dvh w-screen'>
-      <div className='flex flex-col items-center gap-4'>
-        <h1 className='text-3xl font-bold underline text-primary'>
+    <div className="flex h-dvh w-screen items-center justify-center">
+      <div className="flex flex-col items-center gap-4">
+        <h1 className="text-primary text-3xl font-bold underline">
           Page Not Found
         </h1>
-        <Button as='link' to='/'>
-          Go Home
+        <Button asChild>
+          <Link to="/">Go Home</Link>
         </Button>
       </div>
     </div>

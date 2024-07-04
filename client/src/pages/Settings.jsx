@@ -1,16 +1,13 @@
-import ThemeSelector from "../components/ThemeSelector";
+import { ModeToggle } from "@/components/ModeToggle";
 
 function Settings() {
   return (
-    <div className="container mx-auto px-4">
-      <h1 className="mb-12 text-3xl font-bold text-gray-800 dark:text-white">
+    <div className="container mx-auto flex gap-4 px-12 py-8">
+      <h1 className="mb-4 text-3xl font-bold text-gray-800 dark:text-white">
         Settings
       </h1>
       <div className="flex flex-col items-start gap-4">
-        <h2 className="text-xl font-bold text-gray-800 dark:text-white">
-          Theme:
-        </h2>
-        <ThemeSelector />
+        <ModeToggle />
       </div>
     </div>
   );
